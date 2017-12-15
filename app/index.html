@@ -1,0 +1,79 @@
+    <!DOCTYPE html>
+    <html>
+      <head >
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Live Learning</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <!-- bootstrap css -->
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+        <!-- font awesome css -->
+        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+        <!-- owl carousel css -->
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+
+        <link rel="stylesheet" href="assets/css/dashboard.css">
+        <!-- nice select css -->
+        <link rel="stylesheet" href="assets/css/nice-select.css">
+        <!-- main css -->
+        <link rel="stylesheet" href="assets/css/main.css">
+        <!-- responsive css -->
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <!-- font js -->
+        <script src="https://use.typekit.net/ezs1kif.js"></script>
+        <script>
+            window.$ = window.jQuery = require("./assets/js/jquery-3.2.1.min.js");
+        </script>
+        <script>
+        try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+        </script>
+      </head>
+      <body ng-app="livelearning" ng-controller="HomeCtrl as home">
+        <div ng-class="{'row no-margin' : home.Status()}"  ng-if="home.Status()">
+            <div class="dashboard-menu col-md-3 col-lg-3 col-sm-3" ng-if="ShowMenu">
+                <ul>
+                    <li ng-class="{ active: home.isActive('/Course/Offline') }"><a href="/Course/Offline"><img src="assets/images/dashicons/Flag.png" alt="dashboard-icon">Offline Courses</a></li>
+                    <li ng-class="{ active: home.isActive('/Course/Online') }"><a href="/Course/Online"><img src="assets/images/dashicons/Flag.png" alt="dashboard-icon">Online Courses</a></li>
+                    <li ng-class="{ active: home.isActive('/GroupStudy') }"><a href="#"><img src="assets/images/dashicons/Megafon.png" alt="dashboard-icon">Group Study</a></li>
+                    <li ng-class="{ active: home.isActive('/Messages') }"><a href="#"><img src="assets/images/dashicons/Envelope.png" alt="dashboard-icon">Messages</a></li>
+                    <li ng-class="{ active: home.isActive('/Settings') }"><a href="#"><img src="assets/images/dashicons/Gear.png" alt="dashboard-icon">Settings</a></li>
+                </ul>
+            </div>
+            <div ng-class="{'col-md-9 col-lg-9 col-sm-9' : ShowMenu}">
+                <ng-view></ng-view>
+            </div>
+        </div>
+        <ng-view ng-if="!home.Status()"></ng-view>
+        
+      </body>
+      <script src="node_modules/angular/angular.js"></script>
+      <script src="node_modules/angular-route/angular-route.min.js"></script>
+      <script src="node_modules/angular-resource/angular-resource.min.js"></script>
+      <script src='app.js'></script>
+      <script src='scripts/directives/carouselDirective.js'></script>
+      <script src='scripts/authservice.js'></script>
+      <script src='scripts/user/userservice.js'></script>
+      <script src='scripts/course/courseservice.js'></script>
+      <script src='scripts/homectrl.js'></script>
+      <script src='scripts/course/coursectrl.js'></script>
+      <script src='scripts/course/courseplayerctrl.js'></script>
+    <!-- Insert this line above script imports  -->
+    <!-- normal script imports etc  -->
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <!-- owl carousel js -->
+    <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+    <!-- slick js -->
+    <script type="text/javascript" src="assets/js/slick.min.js"></script>
+    <!-- nice select js -->
+    <script type="text/javascript" src="assets/js/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="assets/js/dashboard.js"></script>
+      
+      
+    </html>

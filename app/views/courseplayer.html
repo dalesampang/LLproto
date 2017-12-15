@@ -1,0 +1,83 @@
+<div class="offline-video-wrapper" ng-controller="CoursePlayerCtrl as courseplayervm">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 no-padding">
+                    <div class="video-tab-btn">
+                        <ul>
+                            <li class="active">
+                                <a href="#"><img src="{{dirname}}/assets/images/open-book.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{dirname}}/assets/images/bookmark.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{dirname}}/assets/images/chat.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="video-tab-content">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="section in courseplayervm.course.Sections">
+                                <div class="panel-heading video-course-title" role="tab" id="heading-{{section.Id}}">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{section.Id}}" aria-expanded="true" aria-controls="collapse-{{section.Id}}">
+                                                {{section.Title}}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse-{{section.Id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-{{section.Id}}">
+                                    <div class="panel-body" ng-repeat="lecture in section.Lectures">
+                                        <a target="lectureContent" href="" ng-click="courseplayervm.GetVideo(lecture.Id)">
+                                            <i class="fa fa-check-circle"></i>{{lecture.Title}}
+                                            <span></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-list">
+                            <p>
+                                <a href="#">
+                                    <i class="fa fa-arrow-left"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9 no-padding course-video-wrapper">
+                    <div class="video-section">
+                        <div class="embed-responsive embed-responsive-4by3">
+                                <video  id="video-place" class="embed-responsive-item" autoplay="autoplay">
+                                        <!-- <source ng-src="{{courseplayervm.vidUrl}}" type="video/MP4"> -->
+                                    </video>
+                            <!-- <iframe class="embed-responsive-item" name="lectureContent" allowfullscreen></iframe> -->
+                        </div>
+                        <a href="#"><i class="fa fa-pause"></i></a>
+                    </div>
+                    <div class="video-top-option">
+                        <div class="col-sm-6">
+                            <a href="#" class="video-option-trigger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </a>
+                            <h2 class="video-title"><span>07.</span> Learn to shoot candid</h2>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="video-autoplay-option">
+                                <span>AUTOPLAY</span>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <div class="slider round"><span>ON</span></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="dasboard-btn">dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,136 @@
+
+<div class="row no-margin" ng-controller="CourseCtrl as coursevm">
+        <div class="student-schools-slider-wrapper offline-slider">
+                <h2 class="dashboard-title">My Offline Classes</h2>
+                <div class="dashboard-onlineschools-slider owl-carousel">
+                <div class="single-school-card" ng-repeat="course in coursevm.courses" carousel-item>
+                        <div class="sider-school-info">
+                            <span class="ash-txt">Offline Course</span>
+                            <h1>{{::course.Title}}</h1>
+                            <p class="ash-txt"># of Lessons <span class="blue-text">24 Videos | 2 Quizzes</span></p>
+                            <div class="school-course-progess-bar">
+                                <p>Current Progress <span class="blue-text">60%</span></p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-tutor-wrapper">
+                            <div class="teacher-img">
+                                <img src="assets/images/teacher.png" alt="">
+                                <span class="slider-active-icon"></span>
+                            </div>
+                            <p>Name of Instructor</p>
+                            <a href="/CoursePlayer/{{course.Id}}" class="enrol-btn">Study Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="dashboard-onlineschools-slider owl-carousel">
+                    <div class="single-school-card" ng-repeat="course in coursevm.courses">
+                        <div class="sider-school-info">
+                            <span class="ash-txt">Offline Course</span>
+                            <h1>Name of the School</h1>
+                            <p class="ash-txt"># of Lessons <span class="blue-text">24 Videos | 2 Quizzes</span></p>
+                            <div class="school-course-progess-bar">
+                                <p>Current Progress <span class="blue-text">60%</span></p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-tutor-wrapper">
+                            <div class="teacher-img">
+                                <img src="assets/images/teacher.png" alt="">
+                                <span class="slider-active-icon"></span>
+                            </div>
+                            <p>Name of Instructor</p>
+                            <a href="#" class="enrol-btn">Study Now</a>
+                        </div>
+                    </div>
+                    <div class="single-school-card">
+                        <div class="sider-school-info">
+                            <span class="ash-txt">Offline Course</span>
+                            <h1>Name of the School</h1>
+                            <p class="ash-txt"># of Lessons <span class="blue-text">24 Videos | 2 Quizzes</span></p>
+                            <div class="school-course-progess-bar">
+                                <p>Current Progress <span class="blue-text">60%</span></p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-tutor-wrapper">
+                            <div class="teacher-img">
+                                <img src="assets/images/teacher.png" alt="">
+                                <span class="slider-active-icon"></span>
+                            </div>
+                            <p>Name of Instructor</p>
+                            <a href="#" class="enrol-btn">Study Now</a>
+                        </div>
+                    </div>
+                    <div class="single-school-card">
+                        <div class="sider-school-info">
+                            <span class="ash-txt">Offline Course</span>
+                            <h1>Name of the School</h1>
+                            <p class="ash-txt"># of Lessons <span class="blue-text">24 Videos | 2 Quizzes</span></p>
+                            <div class="school-course-progess-bar">
+                                <p>Current Progress <span class="blue-text">60%</span></p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-tutor-wrapper">
+                            <div class="teacher-img">
+                                <img src="assets/images/teacher.png" alt="">
+                                <span class="slider-active-icon"></span>
+                            </div>
+                            <p>Name of Instructor</p>
+                            <a href="#" class="enrol-btn">Study Now</a>
+                        </div>
+                    </div>
+                    <div class="single-school-card">
+                        <div class="sider-school-info">
+                            <span class="ash-txt">Offline Course</span>
+                            <h1>Name of the School</h1>
+                            <p class="ash-txt"># of Lessons <span class="blue-text">24 Videos | 2 Quizzes</span></p>
+                            <div class="school-course-progess-bar">
+                                <p>Current Progress <span class="blue-text">60%</span></p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-tutor-wrapper">
+                            <div class="teacher-img">
+                                <img src="assets/images/teacher.png" alt="">
+                                <span class="slider-active-icon"></span>
+                            </div>
+                            <p>Name of Instructor</p>
+                            <a href="#" class="enrol-btn">Study Now</a>
+                        </div>
+                    </div>
+                    <div class="single-school-card">
+                        <div class="sider-school-info">
+                            <span class="ash-txt">Offline Course</span>
+                            <h1>Name of the School</h1>
+                            <p class="ash-txt"># of Lessons <span class="blue-text">24 Videos | 2 Quizzes</span></p>
+                            <div class="school-course-progess-bar">
+                                <p>Current Progress <span class="blue-text">60%</span></p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-tutor-wrapper">
+                            <div class="teacher-img">
+                                <img src="assets/images/teacher.png" alt="">
+                                <span class="slider-active-icon"></span>
+                            </div>
+                            <p>Name of Instructor</p>
+                            <a href="#" class="enrol-btn">Study Now</a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+</div>
