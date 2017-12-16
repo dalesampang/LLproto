@@ -164,13 +164,11 @@ body.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
 .offline-video-wrapper .row {
     margin: 0;
 }
-.video-tab-btn {
-    overflow: hidden;
-}
-.video-tab-btn ul {
+/* .video-tab-btn ul {
     margin: 0;
+    display: flex;
+    margin-bottom: -1px;
 }
-
 .video-tab-btn ul li {
     padding: 0;
     margin: 0;
@@ -191,7 +189,7 @@ body.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
 .video-tab-btn ul li.active,
 .video-tab-btn ul li:hover {
     background-color: #16D34E;
-}
+} */
 
 .video-course-title {
     color: #68858E;
@@ -208,7 +206,7 @@ body.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
     padding: 15px 30px;
     margin: 0;
     color: #68858E;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 600;
     display: block;
 }
@@ -232,7 +230,7 @@ body.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
 }
 
 .video-tab-content a i.fa-play-circle {
-    color: #16D34E;
+    color: #16D34E !important;
     font-size: 23px;
     position: relative;
     top: 12px;
@@ -322,12 +320,21 @@ body.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
 
 .video-list p {
     color: #9EB1B7;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 700;
     margin: 0;
     margin-top: 15px;
 }
+.video-list a {
+    display: inline-block !important;
+    padding: 0 10px !important;
+    border: none !important;
+}
 
+.video-autoplay-option
+ .switch {
+    width: 66px;
+}
 .video-list a {
     display: inline-block;
     border: none;
@@ -344,8 +351,8 @@ body.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
 }
 
 .video-option-trigger span {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     display: block;
     background-color: #fff;
     border-radius: 50%;
@@ -355,14 +362,14 @@ body.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
 .video-title {
     display: inline-block;
     margin-left: 10px;
-    font-size: 40px;
+    font-size: 20px;
     position: relative;
     bottom: 8px;
     font-weight: 300;
 }
 
 .video-title span {
-    font-size: 40px;
+    font-size: 20px;
 }
 
 .video-section {
@@ -430,10 +437,10 @@ body.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
 }
 
 .video-autoplay-option span {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
     position: relative;
-    bottom: 2px;
+    bottom: 14px;
     margin-right: 10px;
 }
 
@@ -4613,3 +4620,167 @@ input[type="radio"] .styled:checked + label::after {
 .announcement-cards .single-course-card{
     margin: 10px 0 0;
 }
+
+/* edited*/
+/* .course-syllabus-section.close {
+    margin-left: -100%;
+}
+.video-tab-content {
+    height: calc(100vh - 110px);
+    overflow-y: auto;
+}
+
+
+.video-tab-btn ul {
+    margin: 0;
+    display: flex;
+    margin-bottom: -1px;
+}
+
+    .video-tab-btn ul li {
+        padding: 0;
+        margin: 0;
+        width: 33.34%;
+    }
+
+        .video-tab-btn ul li a {
+            display: block;
+            padding: 20px;
+        }
+
+        .video-tab-btn ul li.active,
+        .video-tab-btn ul li:hover {
+            background-color: #16D34E;
+        }
+        .video-tab-btn li.active img.active-img {
+            display: block !important;
+        }
+        
+        .video-tab-btn li.active img.default-img {
+            display: none !important;
+        } */
+        .video-tab-btn ul {
+            margin: 0;
+            display: flex;
+            margin-bottom: -1px;
+        }
+        
+            .video-tab-btn ul li {
+                padding: 0;
+                margin: 0;
+                width: 33.34%;
+            }
+        
+                .video-tab-btn ul li a {
+                    display: block;
+                    padding: 20px;
+                }
+        
+                .video-tab-btn ul li img {
+                    display: block;
+                    margin: 0 auto;
+                    height: auto;
+                }
+        
+                .video-tab-btn ul li.active,
+                .video-tab-btn ul li:hover {
+                    background-color: #16D34E;
+                }
+
+                
+.active-img {
+    display: none !important;
+}
+        
+        .video-tab-btn li.active img.active-img {
+            display: block !important;
+        }
+        
+        .video-tab-btn li.active img.default-img {
+            display: none !important;
+        }
+        .video-tab-content {
+            height: calc(100vh - 110px);
+            overflow-y: auto;
+        }
+        .course-syllabus-section.close {
+            margin-left: -100%;
+        }
+        .course-video-wrapper.expand {
+            width: 100%;
+        }
+        .video-course-title {
+            color: #68858E;
+            font-size: 15px;
+            font-weight: 700;
+            display: block;
+            padding: 20px 10px;
+            border-top: 1px solid #C6D6DB;
+            margin: 0;
+        }
+        
+        .video-tab-content a {
+            border-top: 1px solid #C6D6DB;
+            padding: 15px 30px;
+            margin: 0;
+            color: #68858E;
+            font-size: 12px !important;
+            font-weight: 600;
+            display: block;
+        }
+        
+            .video-tab-content a span {
+                display: block;
+                font-size: 12px;
+                margin-left: 45px;
+            }
+        .video-tab-content .panel-default > .panel-heading {
+            border: none;
+            padding: 0;
+        }
+        
+            .video-tab-content .panel-default > .panel-heading + .panel-collapse > .panel-body {
+                border: none;
+                padding: 0;
+            }
+        
+        .video-tab-content .panel-default h4 a {
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 20px 10px;
+        }
+        
+        .video-tab-content .panel-body i.fa {
+            color: #9EB1B7;
+            font-size: 15px;
+            position: relative;
+            top: 2px;
+            margin-right: 15px;
+        }
+            .video-tab-content a.active {
+                opacity: .8;
+            }
+        
+                .video-tab-content a.active i.fa-check-circle {
+                    color: #9EB1B7;
+                }
+        
+            .video-tab-content a i.fa-play-circle {
+                color: #16D34E !important;
+            }
+        
+            .video-tab-content a i.fa-question-circle {
+                color: #68858E;
+            }
+        
+            .video-tab-content a i.fa-star {
+                width: 23px;
+                height: 23px;
+                background-color: #FFEB00;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 23px;
+                color: #16D34E;
+                margin-right: 15px;
+            }
+        

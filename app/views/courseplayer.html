@@ -1,7 +1,74 @@
 <div class="offline-video-wrapper" ng-controller="CoursePlayerCtrl as courseplayervm">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-3 no-padding">
+                    <div class="col-sm-3 no-padding course-syllabus-section">
+                            <div class="video-tab-btn">
+                                <ul>
+                                    <li class="active">
+                                        <a href="#course-book" data-toggle="tab"><img src="{{dirname}}/assets/images/cp-icon/Case.png" alt="" class="default-img"><img src="{{dirname}}/assets/images/cp-icon/Case-white.png" alt="" class="active-img"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#bookmark" data-toggle="tab"><img src="{{dirname}}/assets/images/cp-icon/Flag.png" alt="" class="default-img"><img src="{{dirname}}/assets/images/cp-icon/Flag-white.png" alt="" class="active-img"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#chat" data-toggle="tab"><img src="{{dirname}}/assets/images/cp-icon/chat.png" alt="" class="default-img"><img src="{{dirname}}/assets/images/cp-icon/chat-white.png" alt="" class="active-img"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane fade active in" id="course-book">
+                                    <div class="video-tab-content">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                            <div class="panel panel-default" ng-repeat="section in courseplayervm.course.Sections">
+                                                <div class="panel-heading video-course-title" role="tab" id="heading-{{section.Id}}">
+                                                    <h4 class="panel-title">
+                                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{section.Id}}" aria-expanded="true" aria-controls="collapse-{{section.Id}}">
+                                                                {{section.Title}}
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse-{{section.Id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-{{section.Id}}">
+                                                    <div class="panel-body" ng-repeat="lecture in section.Lectures">
+                                                        <a target="lectureContent" href="" ng-click="courseplayervm.GetVideo($parent.$index,$index,lecture)">
+                                                            <i class="fa fa-play-circle"></i>{{lecture.Title}}
+                                                            <span></span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="video-help-section">
+                                            <h3>NEED HELP?</h3>
+                                            <p>Book a session <span class="green-txt">LIVE</span> with Instructor Name</p>
+                                            <div class="video-tutor-img">
+                                                <img src="{{dirname}}/assets/images/tutor-img.png" alt="">
+                                                <span class="video-tutor-active"></span>
+                                            </div>
+                                            <button class="video-boxed-btn">Book a Session</button>
+                                            <h2>Check instructor’s <span class="green-txt">Profile</span> and other <span class="green-txt">Courses</span></h2>
+                                        </div>
+                                        <div class="video-list">
+                                            <p><a href="#"><i class="fa fa-arrow-left"></i></a>02. Manual Setttings &amp; Auto settings <a href="#"><i class="fa fa-arrow-right"></i></a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="bookmark">
+                                    <div class="d-table">
+                                        <div class="d-table-cell">
+                                            <h2>No Bookmark to show now!!!</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="chat">
+                                    <div class="d-table">
+                                        <div class="d-table-cell">
+                                            <h2>Chat is not implemented yet</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                <!-- <div class="col-sm-3 no-padding">
                     <div class="video-tab-btn">
                         <ul>
                             <li class="active">
@@ -46,38 +113,66 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-sm-9 no-padding course-video-wrapper">
                     <div class="video-section">
-                        <div class="embed-responsive embed-responsive-4by3">
-                                <video  id="video-place" class="embed-responsive-item" autoplay="autoplay">
+                        <!-- <div class="embed-responsive embed-responsive-4by3"> -->
+                                <video ng-click="courseplayervm.PlayPauseVideo();" id="video-place" class="embed-responsive-item" autoplay="autoplay">
                                         <!-- <source ng-src="{{courseplayervm.vidUrl}}" type="video/MP4"> -->
-                                    </video>
+                                </video>
                             <!-- <iframe class="embed-responsive-item" name="lectureContent" allowfullscreen></iframe> -->
-                        </div>
-                        <a href="#"><i class="fa fa-pause"></i></a>
+                        <!-- </div> -->
+                        <a ng-click="courseplayervm.PlayPauseVideo();" ng-show="courseplayervm.isPaused || courseplayervm.isEnded"><i ng-class="{'fa fa-play' : courseplayervm.isEnded== true, 'fa fa-pause': courseplayervm.isEnded == false}"></i></a>
                     </div>
                     <div class="video-top-option">
                         <div class="col-sm-6">
-                            <a href="#" class="video-option-trigger">
+                            <a href="#" class="video-option-trigger" ng-click="courseplayervm.VideoFullScreen()">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </a>
-                            <h2 class="video-title"><span>07.</span> Learn to shoot candid</h2>
+                            <h2 class="video-title"><span></span></h2>
                         </div>
                         <div class="col-sm-6">
                             <div class="video-autoplay-option">
                                 <span>AUTOPLAY</span>
                                 <label class="switch">
-                                    <input type="checkbox" checked>
+                                    <input id="autoplay" type="checkbox" checked>
                                     <div class="slider round"><span>ON</span></div>
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="dasboard-btn">dashboard</a>
+                    <a id="dashboard-btn" href="#" class="dasboard-btn">dashboard</a>
                 </div>
             </div>
         </div>
     </div>
+    <!-- <script>
+        function showHideControls(cond){
+            if(cond){
+                $(".video-top-option").show();
+                $("#dashboard-btn").show();
+            }
+            else{
+                $(".video-top-option").hide();
+                $("#dashboard-btn").hide();
+            }
+        };
+        $(document).ready(function(){
+
+            $('#video-place, #dashboard-btn, .video-top-option, .video-section a').hover(function(event) {
+                if(event.type === "mouseenter") {
+                    showHideControls(true);
+                } else if(event.type === "mouseleave") {
+                    showHideControls(false);
+                }
+            });
+
+            $('#video-place').on('ended',function(){
+                if($("#autoplay").is(':checked')){
+
+                }
+            });
+        });
+    </script> -->
