@@ -324,7 +324,19 @@ body.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
     font-weight: 700;
     margin: 0;
     margin-top: 15px;
+    position: relative;
+    text-align: center;
 }
+.video-list p .vid-prev{
+    position: absolute;
+    left: 0;
+}
+
+.video-list p .vid-next{
+    position: absolute;
+    right: 0;
+}
+
 .video-list a {
     display: inline-block !important;
     padding: 0 10px !important;

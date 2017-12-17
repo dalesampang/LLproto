@@ -28,9 +28,9 @@
                                                     </h4>
                                                 </div>
                                                 <div id="collapse-{{section.Id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-{{section.Id}}">
-                                                    <div class="panel-body" ng-repeat="lecture in section.Lectures">
+                                                    <div class="panel-body" ng-class="{'active' : courseplayervm.lecId == {{ lecture.Id}}}" ng-repeat="lecture in section.Lectures">
                                                         <a target="lectureContent" href="" ng-click="courseplayervm.GetVideo($parent.$index,$index,lecture)">
-                                                            <i class="fa fa-play-circle"></i>{{lecture.Title}}
+                                                            <i ng-class="{'fa fa-play-circle': courseplayervm.lecId !== {{lecture.Id}},'fa fa-check-circle': courseplayervm.lecId == {{lecture.Id}}}"></i>{{lecture.Title}}
                                                             <span></span>
                                                         </a>
                                                     </div>
@@ -48,7 +48,7 @@
                                             <h2>Check instructor’s <span class="green-txt">Profile</span> and other <span class="green-txt">Courses</span></h2>
                                         </div>
                                         <div class="video-list">
-                                            <p><a href="#"><i class="fa fa-arrow-left"></i></a>02. Manual Setttings &amp; Auto settings <a href="#"><i class="fa fa-arrow-right"></i></a></p>
+                                            <p><a class="vid-prev" ng-click="courseplayervm.PrevNext(false);"><i class="fa fa-arrow-left"></i></a>{{courseplayervm.nextTitle}}<a class="vid-next"ng-click="courseplayervm.PrevNext(true);"><i class="fa fa-arrow-right"></i></a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -68,52 +68,6 @@
                                 </div>
                             </div>
                         </div>
-                <!-- <div class="col-sm-3 no-padding">
-                    <div class="video-tab-btn">
-                        <ul>
-                            <li class="active">
-                                <a href="#"><img src="{{dirname}}/assets/images/open-book.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="{{dirname}}/assets/images/bookmark.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="{{dirname}}/assets/images/chat.png" alt=""></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="video-tab-content">
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            <div class="panel panel-default" ng-repeat="section in courseplayervm.course.Sections">
-                                <div class="panel-heading video-course-title" role="tab" id="heading-{{section.Id}}">
-                                    <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{section.Id}}" aria-expanded="true" aria-controls="collapse-{{section.Id}}">
-                                                {{section.Title}}
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapse-{{section.Id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-{{section.Id}}">
-                                    <div class="panel-body" ng-repeat="lecture in section.Lectures">
-                                        <a target="lectureContent" href="" ng-click="courseplayervm.GetVideo(lecture.Id)">
-                                            <i class="fa fa-check-circle"></i>{{lecture.Title}}
-                                            <span></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="video-list">
-                            <p>
-                                <a href="#">
-                                    <i class="fa fa-arrow-left"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="col-sm-9 no-padding course-video-wrapper">
                     <div class="video-section">
                         <!-- <div class="embed-responsive embed-responsive-4by3"> -->
@@ -122,7 +76,7 @@
                                 </video>
                             <!-- <iframe class="embed-responsive-item" name="lectureContent" allowfullscreen></iframe> -->
                         <!-- </div> -->
-                        <a ng-click="courseplayervm.PlayPauseVideo();" ng-show="courseplayervm.isPaused || courseplayervm.isEnded"><i ng-class="{'fa fa-play' : courseplayervm.isEnded== true, 'fa fa-pause': courseplayervm.isEnded == false}"></i></a>
+                        <a id="video-big-button" ng-click="courseplayervm.PlayPauseVideo();" style="display:none"><i></i></a>
                     </div>
                     <div class="video-top-option">
                         <div class="col-sm-6">
@@ -137,7 +91,7 @@
                             <div class="video-autoplay-option">
                                 <span>AUTOPLAY</span>
                                 <label class="switch">
-                                    <input id="autoplay" type="checkbox" checked>
+                                    <input id="autoplay" ng-model="courseplayervm.autoplay" type="checkbox">
                                     <div class="slider round"><span>ON</span></div>
                                 </label>
                             </div>
@@ -148,31 +102,3 @@
             </div>
         </div>
     </div>
-    <!-- <script>
-        function showHideControls(cond){
-            if(cond){
-                $(".video-top-option").show();
-                $("#dashboard-btn").show();
-            }
-            else{
-                $(".video-top-option").hide();
-                $("#dashboard-btn").hide();
-            }
-        };
-        $(document).ready(function(){
-
-            $('#video-place, #dashboard-btn, .video-top-option, .video-section a').hover(function(event) {
-                if(event.type === "mouseenter") {
-                    showHideControls(true);
-                } else if(event.type === "mouseleave") {
-                    showHideControls(false);
-                }
-            });
-
-            $('#video-place').on('ended',function(){
-                if($("#autoplay").is(':checked')){
-
-                }
-            });
-        });
-    </script> -->
