@@ -5,13 +5,13 @@
                             <div class="video-tab-btn">
                                 <ul>
                                     <li class="active">
-                                        <a href="#course-book" data-toggle="tab"><img src="{{dirname}}/assets/images/cp-icon/Case.png" alt="" class="default-img"><img src="{{dirname}}/assets/images/cp-icon/Case-white.png" alt="" class="active-img"></a>
+                                        <a data-target="#course-book" data-toggle="tab"><img src="{{dirname}}/assets/images/cp-icon/Case.png" alt="" class="default-img"><img src="{{dirname}}/assets/images/cp-icon/Case-white.png" alt="" class="active-img"></a>
                                     </li>
                                     <li>
-                                        <a href="#bookmark" data-toggle="tab"><img src="{{dirname}}/assets/images/cp-icon/Flag.png" alt="" class="default-img"><img src="{{dirname}}/assets/images/cp-icon/Flag-white.png" alt="" class="active-img"></a>
+                                        <a data-target="#bookmark" data-toggle="tab"><img src="{{dirname}}/assets/images/cp-icon/Flag.png" alt="" class="default-img"><img src="{{dirname}}/assets/images/cp-icon/Flag-white.png" alt="" class="active-img"></a>
                                     </li>
                                     <li>
-                                        <a href="#chat" data-toggle="tab"><img src="{{dirname}}/assets/images/cp-icon/chat.png" alt="" class="default-img"><img src="{{dirname}}/assets/images/cp-icon/chat-white.png" alt="" class="active-img"></a>
+                                        <a data-target="#chat" data-toggle="tab"><img src="{{dirname}}/assets/images/cp-icon/chat.png" alt="" class="default-img"><img src="{{dirname}}/assets/images/cp-icon/chat-white.png" alt="" class="active-img"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -22,14 +22,14 @@
                                             <div class="panel panel-default" ng-repeat="section in courseplayervm.course.Sections">
                                                 <div class="panel-heading video-course-title" role="tab" id="heading-{{section.Id}}">
                                                     <h4 class="panel-title">
-                                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{section.Id}}" aria-expanded="true" aria-controls="collapse-{{section.Id}}">
+                                                        <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapse-{{section.Id}}" aria-expanded="true" aria-controls="collapse-{{section.Id}}">
                                                                 {{section.Title}}
                                                         </a>
                                                     </h4>
                                                 </div>
                                                 <div id="collapse-{{section.Id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-{{section.Id}}">
                                                     <div class="panel-body" ng-class="{'active' : courseplayervm.lecId == {{ lecture.Id}}}" ng-repeat="lecture in section.Lectures">
-                                                        <a target="lectureContent" href="" ng-click="courseplayervm.GetVideo($parent.$index,$index,lecture)">
+                                                        <a target="lectureContent" ng-click="courseplayervm.GetVideo($parent.$index,$index,lecture)">
                                                             <i ng-class="{'fa fa-play-circle': courseplayervm.lecId !== {{lecture.Id}},'fa fa-check-circle': courseplayervm.lecId == {{lecture.Id}}}"></i>{{lecture.Title}}
                                                             <span></span>
                                                         </a>
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                     </div>
-                    <a id="dashboard-btn" href="#" class="dasboard-btn">dashboard</a>
+                    <a id="dashboard-btn" data-target="#" class="dasboard-btn">dashboard</a>
                 </div>
             </div>
         </div>
